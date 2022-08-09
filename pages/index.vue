@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main/>
+    TEST LAST NEWS
   </div>
 </template>
 

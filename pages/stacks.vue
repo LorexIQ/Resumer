@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    TEST STACKS
+  </div>
 </template>
 
 <script>
