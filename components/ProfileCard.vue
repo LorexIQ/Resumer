@@ -289,16 +289,14 @@ $br: 25px;
     &-enter, &-leave-to {
       opacity: 0.5;
       width: 0;
+      transform: translateX(-20px);
     }
     &-enter-to, &-leave {
       opacity: 1;
     }
   }
   &-content-animate {
-    &-enter-active {
-      transition: .3s .3s;
-    }
-    &-leave-active {
+    &-enter-active, &-leave-active {
       transition: .3s;
     }
     &-enter, &-leave-to {

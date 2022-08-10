@@ -1,30 +1,37 @@
 <template>
   <div class="l-pages">
-    <nuxt-link
-      active-class="l-pages__link--active"
-      class="l-pages__link"
-      to="/"
-      exact
+    <span
+      v-for="(page, index) in pageData"
+      :key="index"
     >
-      <lfa :icon="['fas', 'newspaper']"/>
-      <span>Last News</span>
-      <lfa class="l-pages__link__arrow" :icon="['fas', 'caret-right']"/>
-    </nuxt-link>
-    <nuxt-link
-      active-class="l-pages__link--active"
-      class="l-pages__link"
-      to="/stacks"
-    >
-      <lfa :icon="['fas', 'cubes']"/>
-      <span>Stacks</span>
-      <lfa class="l-pages__link__arrow" :icon="['fas', 'caret-right']"/>
-    </nuxt-link>
+      <nuxt-link
+        class="l-pages__link"
+        active-class="l-pages__link--active"
+        :to="page.link"
+        draggable="false"
+        v-bind:exact="page.exact ? page.exact : false"
+      >
+        <div class="l-pages__link__icon">
+          <lfa :icon="['fas', page.icon]"/>
+        </div>
+        <span>{{ page.title }}</span>
+        <lfa class="l-pages__link__arrow" :icon="['fas', 'caret-right']"/>
+      </nuxt-link>
+    </span>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Pages"
+  name: "Pages",
+  props: {
+    pageData: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    }
+  }
 }
 </script>
 
@@ -39,6 +46,7 @@ $br: 15px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding-top: 40px;
   &__link {
     position: relative;
     display: flex;
@@ -53,6 +61,7 @@ $br: 15px;
     padding: 0 20px;
     border-radius: $br;
     transition: .3s;
+    user-select: none;
     &:hover {
       &:not(.l-pages__link--active) {
         .l-pages {
@@ -85,6 +94,13 @@ $br: 15px;
         }
       }
       background-color: $dark-purple;
+    }
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
     }
   }
 }

@@ -1,20 +1,20 @@
 <template>
   <div>
-    TEST STACKS
+    TEST PROJECTS
   </div>
 </template>
 
 <script>
 export default {
-  name: "stacks",
+  name: "projects",
   head() {
     return {
-      title: 'Resumer: Stacks'
+      title: 'Resumer: Projects'
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
