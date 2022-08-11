@@ -15,10 +15,12 @@ const cM = {
     Vue.prototype.$colorMode = function () {}
     Vue.prototype.$colorMode.auto = function (lightTag, darkTag) {
       const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
-      if (isLightMode === 'true' && lightTag) {
+      if (isLightMode === true && lightTag) {
         selectMode(lightTag);
       } else if (darkTag) {
         selectMode(darkTag);
+      } else {
+        if (modeSelected) bodyElement.remove(modeSelected);
       }
     }
     Vue.prototype.$colorMode.setMode = function (mode) {
