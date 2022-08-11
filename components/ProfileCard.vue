@@ -47,13 +47,17 @@
             {{userData.level}}
           </p>
           <span>
-                <p>Age:</p>
-                <p>{{Math.floor((Date.now() - userData.birthdayTimestamp) / 31536000000)}} y.o.</p>
-              </span>
+            <p>Age:</p>
+            <p>{{Math.floor((Date.now() - userData.birthdayTimestamp) / 31536000000)}} y.o.</p>
+          </span>
           <span>
-                <p>Workplace:</p>
-                <p>{{userData.workplace}}</p>
-              </span>
+            <p>Workplace:</p>
+            <p>{{userData.workplace}}</p>
+          </span>
+          <span>
+            <p>Education:</p>
+            <p>{{userData.education}}</p>
+          </span>
         </div>
       </transition>
     </div>

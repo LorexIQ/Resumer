@@ -1,7 +1,7 @@
 <template>
   <div class="l-pages">
     <span
-      v-for="(page, index) in pageData"
+      v-for="(page, index) in pagesData"
       :key="index"
     >
       <nuxt-link
@@ -25,7 +25,7 @@
 export default {
   name: "Pages",
   props: {
-    pageData: {
+    pagesData: {
       type: Array,
       default: () => {
         return []
