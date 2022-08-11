@@ -5,8 +5,16 @@
         class="l-card__profile__header"
         :class="expandedProfileContent ? 'l-card__profile__header--max' : ''"
       >
-        <div class="l-card__profile__header__photo">
-          <img src="@/assets/img/profile_photo.jpg" alt="Photo profile" draggable="false">
+        <div
+          class="l-card__profile__header__photo"
+          :class="{'l-card__profile__header__photo--open': expandedProfileContent}"
+        >
+          <transition name="profile-photo-span">
+            <span v-if="expandedProfileContent">Card</span>
+          </transition>
+          <div class="l-card__profile__header__photo__content">
+            <img src="@/assets/img/profile_photo.jpg" alt="Photo profile" draggable="false">
+          </div>
         </div>
         <transition name="profile-title-animate">
           <div
@@ -116,6 +124,7 @@ $br: 25px;
     width: 100%;
     z-index: 1;
     &__header {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -123,18 +132,41 @@ $br: 25px;
       padding: 10px 20px;
       transition: .3s;
       &__photo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: $photo-size;
-        height: $photo-size;
-        overflow: hidden;
-        border-radius: $br;
-        user-select: none;
         transition: .3s;
-        img {
-          transition: .3s;
+        span {
+          position: absolute;
+          top: 10px;
+          left: 128px;
+          user-select: none;
+          font-size: 20px;
+          font-weight: 500;
+          height: 60px;
+          display: flex;
+          align-items: center;
+        }
+        &__content{
+          display: flex;
+          justify-content: center;
+          align-items: center;
           width: $photo-size;
+          height: $photo-size;
+          overflow: hidden;
+          border-radius: $br;
+          user-select: none;
+          transition: .3s;
+          img {
+            transition: .3s;
+            width: $photo-size;
+          }
+        }
+        &--open {
+          margin-top: 60px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          margin-left: 18px;
         }
       }
       &__title {
@@ -144,9 +176,9 @@ $br: 25px;
         width: 140px;
         font-family: Roboto, sans-serif;
         font-weight: 400;
-        user-select: none;
         white-space: nowrap;
         span {
+          user-select: none;
           &:first-child {
             font-weight: 600;
             font-size: 18px;
@@ -159,11 +191,13 @@ $br: 25px;
       &__opener {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-self: flex-start;
+        margin-top: 20px;
         font-size: 20px;
-        width: 18px;
+        min-width: 18px;
         height: 20px;
         cursor: pointer;
+        user-select: none;
         svg {
           transition: .3s;
         }
@@ -179,15 +213,17 @@ $br: 25px;
         }
       }
       &--max {
-        padding-top: 20px;
+        gap: 0;
         .l-card {
           &__profile {
             &__header {
               &__photo {
-                width: $photo-size-max;
-                height: $photo-size-max;
-                img {
+                &__content {
                   width: $photo-size-max;
+                  height: $photo-size-max;
+                  img {
+                    width: $photo-size-max;
+                  }
                 }
               }
             }
@@ -281,6 +317,19 @@ $br: 25px;
   }
 }
 .profile {
+  &-photo-span {
+    &-enter-active, &-leave-active {
+      transition: .3s ease-in-out;
+      overflow: hidden;
+    }
+    &-enter, &-leave-to {
+      max-height: 0;
+      opacity: 0;
+    }
+    &-enter-to, &-leave {
+      max-height: 60px;
+    }
+  }
   &-title-animate {
     &-enter-active, &-leave-active {
       transition: .3s;
