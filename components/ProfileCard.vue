@@ -173,7 +173,7 @@ $br: 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 140px;
+        min-width: 140px;
         font-family: Roboto, sans-serif;
         font-weight: 400;
         white-space: nowrap;
@@ -336,17 +336,20 @@ $br: 25px;
       overflow: hidden;
     }
     &-enter, &-leave-to {
-      opacity: 0.5;
-      width: 0;
-      transform: translateX(-20px);
+      opacity: 0;
+      min-width: 0;
+      max-width: 0;
     }
     &-enter-to, &-leave {
       opacity: 1;
     }
   }
   &-content-animate {
-    &-enter-active, &-leave-active {
-      transition: .3s;
+    &-enter-active {
+      transition: .3s ease;
+    }
+    &-leave-active {
+      transition: .3s ease-out;
     }
     &-enter, &-leave-to {
       max-height: 0;
