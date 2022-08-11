@@ -36,8 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/variables.scss";
-
 .l-pages {
   display: flex;
   flex-direction: column;
@@ -50,12 +48,12 @@ export default {
     align-items: center;
     gap: 40px;
     font-weight: 400;
-    color: $gray;
+    color: var(--md-c-text);
     text-decoration: none;
     height: 60px;
     width: 300px;
     padding: 0 20px;
-    border-radius: $br-sm;
+    border-radius: var(--br-sm);
     transition: .3s;
     user-select: none;
     &:hover {
@@ -81,15 +79,15 @@ export default {
       transition: .3s;
     }
     &--active {
-      color: $white;
+      color: var(--c-sd-text);
       .l-pages {
         &__link {
           &__arrow {
-            color: $gray;
+            color: var(--md-c-text);
           }
         }
       }
-      background-color: $dark-purple;
+      background-color: var(--bg-sd-page-el);
     }
     &__icon {
       display: flex;

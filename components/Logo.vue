@@ -12,17 +12,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/variables.scss";
-
 .l-logo {
   font-size: 35px;
   padding: 25px 0;
   user-select: none;
     svg {
-      color: $light-purple;
+      color: var(--light-purple);
     }
     span {
+      color: var(--c-text-logo);
       font-weight: 700;
+      transition: .3s;
     }
 }
 </style>

@@ -63,6 +63,11 @@ export default {
     themeSelect() {
       this.themeModeSelected++;
       if (this.themeModeSelected > 2) this.themeModeSelected = 0;
+      if (this.themeModeSelected === 0) {
+        this.$colorMode.setMode('light');
+      } else {
+        this.$colorMode.clear();
+      }
     },
     changePageAnimation(newTitle) {
       if (this.changingTitle) {
@@ -84,8 +89,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/variables.scss";
-
 .l-sidebar {
   display: flex;
   align-items: center;
@@ -108,7 +111,8 @@ export default {
     align-items: center;
     width: 50px;
     height: 50px;
-    background-color: $light-purple;
+    background-color: var(--light-purple);
+    color: var(--c-sd-text);
     border-radius: 15px;
     cursor: pointer;
     transition: .3s;
@@ -117,7 +121,7 @@ export default {
       font-size: 20px;
     }
     &:hover {
-      background-color: $light-dark-purple;
+      background-color: var(--light-dark-purple);
     }
   }
 }

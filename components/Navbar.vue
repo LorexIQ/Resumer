@@ -29,18 +29,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/variables.scss";
-
 .l-navbar {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 0 15px 0 var(--bs-c-element);
   width: 350px;
   height: calc(100vh - 40px);
   margin: 20px 0 20px 20px;
-  border-radius: $br-bg;
-  background-color: $dark-light;
-  color: #c7c6d5;
+  border-radius: var(--br-bg);
+  background-color: var(--bg-element);
+  transition: .3s;
   &__slider {
     display: flex;
     flex-direction: column;
@@ -50,17 +49,21 @@ export default {
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
-    scrollbar-color: $dark $dark-ultra-light;
+    scrollbar-color: var(--bg-page) var(--c-border);
+    color: var(--c-el-nv-page);
+    transition: .3s;
     &::-webkit-scrollbar {
       width: 8px;
     }
     &::-webkit-scrollbar-track {
-      background-color: $dark-ultra-light;
+      background-color: var(--c-border);
       border-radius: 4px;
+      transition: .3s;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: $dark;
+      background-color: var(--bg-page);
       border-radius: 4px;
+      transition: .3s;
     }
   }
 }

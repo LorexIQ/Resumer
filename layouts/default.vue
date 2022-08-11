@@ -18,7 +18,6 @@ export default {
         surname: 'Murashko',
         patronymic: 'Sergeevich',
         birthday: '29.12.2002',
-        birthdayTimestamp: null,
         level: 'Junior developer',
         workplace: 'Noosphere Software LLC',
         education: 'Studying at BSITU',
@@ -65,8 +64,6 @@ export default {
     }
   },
   mounted() {
-    let dateParts = this.userData.birthday.split('.');
-    this.userData.birthdayTimestamp = new Date(dateParts[2] - 0, dateParts[1] - 1, dateParts[0] - 0);
   },
   methods: {
   }
@@ -74,8 +71,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/variables.scss";
-
 .l-layout {
   display: flex;
   gap: 40px;

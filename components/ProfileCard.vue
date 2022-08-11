@@ -46,15 +46,15 @@
           <p class="l-card__profile__content__level">
             {{userData.level}}
           </p>
-          <span>
+          <span v-if="userData.birthdayTimestamp">
             <p>Age:</p>
             <p>{{Math.floor((Date.now() - userData.birthdayTimestamp) / 31536000000)}} y.o.</p>
           </span>
-          <span>
+          <span v-if="userData.workplace">
             <p>Workplace:</p>
             <p>{{userData.workplace}}</p>
           </span>
-          <span>
+          <span v-if="userData.education">
             <p>Education:</p>
             <p>{{userData.education}}</p>
           </span>
@@ -90,6 +90,12 @@ export default {
       }
     }
   },
+  mounted() {
+    if (this.userData.birthday) {
+      let dateParts = this.userData.birthday.split('.');
+      this.userData.birthdayTimestamp = new Date(dateParts[2] - 0, dateParts[1] - 1, dateParts[0] - 0);
+    }
+  },
   methods: {
     goToPage(link) {
       window.open(link);
@@ -99,8 +105,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/variables.scss";
-
 .l-card {
   position: relative;
   display: flex;
@@ -109,9 +113,10 @@ export default {
   width: 300px;
   margin-bottom: 60px;
   &__profile {
-    border: 1px solid $dark-ultra-light;
-    border-radius: $br-md;
-    background-color: $dark-light;
+    border: 1px solid var(--c-border);
+    border-radius: var(--br-md);
+    background-color: var(--bg-element);
+    transition: .3s;
     width: 100%;
     z-index: 1;
     &__header {
@@ -133,21 +138,22 @@ export default {
           font-weight: 500;
           height: 60px;
           display: flex;
+          color: var(--c-title-name);
           align-items: center;
         }
         &__content{
           display: flex;
           justify-content: center;
           align-items: center;
-          width: $photo-size;
-          height: $photo-size;
+          width: var(--photo-size);
+          height: var(--photo-size);
           overflow: hidden;
-          border-radius: $br-md;
+          border-radius: var(--br-md);
           user-select: none;
           transition: .3s;
           img {
             transition: .3s;
-            width: $photo-size;
+            width: var(--photo-size);
           }
         }
         &--open {
@@ -168,13 +174,16 @@ export default {
         font-family: Roboto, sans-serif;
         font-weight: 400;
         white-space: nowrap;
+        transition: .3s;
         span {
           user-select: none;
           &:first-child {
+            color: var(--c-title-name);
             font-weight: 600;
             font-size: 18px;
           }
           &:last-child {
+            color: var(--c-title-level);
             font-size: 12px;
           }
         }
@@ -188,6 +197,7 @@ export default {
         min-width: 18px;
         height: 20px;
         cursor: pointer;
+        color: var(--c-title-level);
         user-select: none;
         svg {
           transition: .3s;
@@ -199,7 +209,7 @@ export default {
         }
         &:hover {
           svg {
-            color: $white;
+            color: var(--c-title-name);
           }
         }
       }
@@ -210,10 +220,10 @@ export default {
             &__header {
               &__photo {
                 &__content {
-                  width: $photo-size-max;
-                  height: $photo-size-max;
+                  width: var(--photo-size-max);
+                  height: var(--photo-size-max);
                   img {
-                    width: $photo-size-max;
+                    width: var(--photo-size-max);
                   }
                 }
               }
@@ -228,8 +238,10 @@ export default {
       font-size: 14px;
       overflow: hidden;
       span {
+        color: var(--c-stnd-text);
         display: flex;
         gap: 5px;
+        transition: .3s;
         p {
           font-weight: 300;
           margin: 0;
@@ -243,13 +255,17 @@ export default {
         text-align: center;
       }
       &__full-name {
+        color: var(--c-title-name);
         font-size: 24px;
         font-weight: 600;
         line-height: 25px;
+        transition: .3s;
       }
       &__level {
+        color: var(--c-title-level);
         font-weight: 300;
         padding-bottom: 10px;
+        transition: .3s;
       }
     }
   }
@@ -261,16 +277,18 @@ export default {
     gap: 1px;
     height: 100px;
     width: 100%;
-    border: 1px solid $dark-ultra-light;
+    border: 1px solid var(--c-border);
     border-top: 0;
-    border-radius: 0 0 $br-md $br-md;
+    border-radius: 0 0 var(--br-md) var(--br-md);
     overflow: hidden;
     cursor: pointer;
+    transition: .3s;
     &__button {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: flex-end;
+      color: var(--c-contact-button);
       padding-bottom: 15px;
       width: 100%;
       height: 100%;
@@ -285,21 +303,21 @@ export default {
         top: 0;
         width: 100%;
         height: 0;
-        background-color: $dark-purple;
+        background-color: var(--bg-sd-page-el);
         transition: .3s;
       }
       &:first-child {
         &::before {
-          border-radius: 0 0 0 $br-md;
+          border-radius: 0 0 0 var(--br-md);
         }
       }
       &:last-child {
         &::before {
-          border-radius: 0 0 $br-md 0;
+          border-radius: 0 0 var(--br-md) 0;
         }
       }
       &:hover {
-        color: $white;
+        color: var(--c-sd-text);
         &::before {
           height: 100%;
         }
