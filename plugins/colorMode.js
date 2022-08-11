@@ -6,11 +6,23 @@ const cM = {
     let modeSelected = '';
     let bodyElement = document.documentElement.classList;
 
-    Vue.prototype.$colorMode = function () {}
-    Vue.prototype.$colorMode.setMode = function (mode) {
+    function selectMode(newMode) {
       if (modeSelected) bodyElement.remove(modeSelected);
-      bodyElement.add(mode + prefix);
-      modeSelected = mode + prefix;
+      bodyElement.add(newMode + prefix);
+      modeSelected = newMode + prefix;
+    }
+
+    Vue.prototype.$colorMode = function () {}
+    Vue.prototype.$colorMode.auto = function (lightTag, darkTag) {
+      const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (isLightMode === 'true' && lightTag) {
+        selectMode(lightTag);
+      } else if (darkTag) {
+        selectMode(darkTag);
+      }
+    }
+    Vue.prototype.$colorMode.setMode = function (mode) {
+      selectMode(mode);
     }
     Vue.prototype.$colorMode.clear = function () {
       if (modeSelected) bodyElement.remove(modeSelected);

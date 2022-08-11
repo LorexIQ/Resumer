@@ -8,7 +8,7 @@
     </span>
     <div
       class="l-sidebar__theme"
-      @click="themeSelect"
+      @click="themeSelect(false)"
     >
       <template
         v-for="(mode, index) in themeModes"
@@ -31,9 +31,9 @@ export default {
       titleDelayId: null,
 
       themeModes: [
-        'sun',
+        'a',
         'moon',
-        'a'
+        'sun'
       ],
       themeModeSelected: 0,
     }
@@ -48,6 +48,10 @@ export default {
   },
   mounted() {
     this.pageTitle = this.titlePage;
+    if (localStorage.themeModeSelected) {
+      this.themeModeSelected = parseInt(localStorage.themeModeSelected);
+    }
+    this.themeSelect(true);
   },
   computed: {
     titlePage() {
@@ -60,13 +64,18 @@ export default {
     }
   },
   methods: {
-    themeSelect() {
-      this.themeModeSelected++;
-      if (this.themeModeSelected > 2) this.themeModeSelected = 0;
+    themeSelect(update=false) {
+      if (!update) {
+        this.themeModeSelected++;
+        if (this.themeModeSelected > 2) this.themeModeSelected = 0;
+        localStorage.themeModeSelected = this.themeModeSelected;
+      }
       if (this.themeModeSelected === 0) {
-        this.$colorMode.setMode('light');
-      } else {
+        this.$colorMode.auto('light');
+      } else if (this.themeModeSelected === 1) {
         this.$colorMode.clear();
+      } else if (this.themeModeSelected === 2) {
+        this.$colorMode.setMode('light');
       }
     },
     changePageAnimation(newTitle) {
