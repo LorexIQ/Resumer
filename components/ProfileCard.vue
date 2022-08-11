@@ -62,20 +62,13 @@
       </transition>
     </div>
     <div class="l-card__contact">
-      <div class="l-card__contact__button">
-        <lfa :icon="['fab', 'vk']"/>
-      </div>
-      <div class="l-card__contact__division" />
-      <div class="l-card__contact__button">
-        <lfa :icon="['fab', 'telegram']"/>
-      </div>
-      <div class="l-card__contact__division" />
-      <div class="l-card__contact__button">
-        <lfa :icon="['fab', 'github']"/>
-      </div>
-      <div class="l-card__contact__division" />
-      <div class="l-card__contact__button">
-        <lfa :icon="['fas', 'envelope']"/>
+      <div
+        v-for="(web, index) in userData.links"
+        :key="index"
+        class="l-card__contact__button"
+        @click="goToPage(web.link)"
+      >
+        <lfa :icon="web.icon"/>
       </div>
     </div>
   </div>
@@ -95,6 +88,11 @@ export default {
       default: () => {
         return {}
       }
+    }
+  },
+  methods: {
+    goToPage(link) {
+      window.open(link);
     }
   }
 }

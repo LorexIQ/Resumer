@@ -21,7 +21,25 @@ export default {
         birthdayTimestamp: null,
         level: 'Junior developer',
         workplace: 'Noosphere Software LLC',
-        education: 'Studying at BSITU'
+        education: 'Studying at BSITU',
+        links: [
+          {
+            icon: ['fab', 'vk'],
+            link: 'https://vk.com/whedmitryel'
+          },
+          {
+            icon: ['fab', 'telegram'],
+            link: 'https://t.me/LorexIQ'
+          },
+          {
+            icon: ['fab', 'github'],
+            link: 'https://github.com/LorexIQ'
+          },
+          {
+            icon: ['fas', 'envelope'],
+            link: 'mailto: murashko100500@gmail.com'
+          }
+        ]
       },
       navbarPages: [
         {
@@ -64,7 +82,6 @@ export default {
   &__field {
     padding: 20px 40px 20px 0;
     width: calc(100% - 430px);
-
   }
 }
 </style>
