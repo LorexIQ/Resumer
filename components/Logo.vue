@@ -12,11 +12,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$light-purple: #7a4de8;
+@import "@/assets/css/variables.scss";
 
 .l-logo {
   font-size: 35px;
-  padding-top: 25px;
+  padding: 25px 0;
   user-select: none;
     svg {
       color: $light-purple;

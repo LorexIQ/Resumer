@@ -2,8 +2,10 @@
   <div class="l-layout">
     <div class="l-layout__navbar">
       <logo />
-      <profile-card :user-data="userData"/>
-      <pages :page-data="navbarPages"/>
+      <div class="l-layout__navbar__slider">
+        <profile-card :user-data="userData"/>
+        <pages :page-data="navbarPages"/>
+      </div>
     </div>
     <div ref="page" class="l-layout__field">
       <div class="l-layout__field__title">
@@ -116,19 +118,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$light-font: #dfdef1;
-$dark-light: #212130;
-$dark-ultra-light: #2e2e42;
-$dark: #171622;
-$dark-purple: #3c2e67;
-$light-purple: #7a4de8;
-$light-dark-purple: #6b46c8;
-$ultra-light-purple: #8255ea;
-$white: #ffffff;
-
-$photo-size-max: 200px;
-$photo-size: 60px;
-$br: 35px;
+@import "@/assets/css/variables.scss";
 
 .l-layout {
   display: flex;
@@ -140,9 +130,31 @@ $br: 35px;
     width: 350px;
     height: calc(100vh - 40px);
     margin: 20px 0 20px 20px;
-    border-radius: $br;
+    border-radius: $br-bg;
     background-color: $dark-light;
     color: #c7c6d5;
+    &__slider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: calc(100% - 25px);
+      max-height: calc(100% - 125px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: $dark $dark-ultra-light;
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: $dark-ultra-light;
+        border-radius: 4px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $dark;
+        border-radius: 4px;
+      }
+    }
   }
   &__field {
     padding: 20px 40px 20px 0;

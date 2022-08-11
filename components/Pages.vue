@@ -36,11 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gray: #969ba0;
-$white: #fff;
-$dark-purple: #3c2e67;
-
-$br: 15px;
+@import "@/assets/css/variables.scss";
 
 .l-pages {
   display: flex;
@@ -59,7 +55,7 @@ $br: 15px;
     height: 60px;
     width: 300px;
     padding: 0 20px;
-    border-radius: $br;
+    border-radius: $br-sm;
     transition: .3s;
     user-select: none;
     &:hover {

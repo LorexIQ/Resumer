@@ -97,17 +97,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$light-font: #dfdef1;
-$dark-light: #212130;
-$dark-ultra-light: #2e2e42;
-$dark: #171622;
-$dark-purple: #3c2e67;
-$light-purple: #7a4de8;
-$white: #ffffff;
-
-$photo-size-max: 200px;
-$photo-size: 60px;
-$br: 25px;
+@import "@/assets/css/variables.scss";
 
 .l-card {
   position: relative;
@@ -115,11 +105,10 @@ $br: 25px;
   flex-direction: column;
   align-items: center;
   width: 300px;
-  padding: 25px 0 0 0;
   margin-bottom: 60px;
   &__profile {
     border: 1px solid $dark-ultra-light;
-    border-radius: $br;
+    border-radius: $br-md;
     background-color: $dark-light;
     width: 100%;
     z-index: 1;
@@ -151,7 +140,7 @@ $br: 25px;
           width: $photo-size;
           height: $photo-size;
           overflow: hidden;
-          border-radius: $br;
+          border-radius: $br-md;
           user-select: none;
           transition: .3s;
           img {
@@ -272,7 +261,7 @@ $br: 25px;
     width: 100%;
     border: 1px solid $dark-ultra-light;
     border-top: 0;
-    border-radius: 0 0 $br $br;
+    border-radius: 0 0 $br-md $br-md;
     overflow: hidden;
     cursor: pointer;
     &__button {
@@ -299,12 +288,12 @@ $br: 25px;
       }
       &:first-child {
         &::before {
-          border-radius: 0 0 0 $br;
+          border-radius: 0 0 0 $br-md;
         }
       }
       &:last-child {
         &::before {
-          border-radius: 0 0 $br 0;
+          border-radius: 0 0 $br-md 0;
         }
       }
       &:hover {
