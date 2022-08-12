@@ -11,6 +11,9 @@ export default {
     return {
       title: 'Resumer: News'
     }
+  },
+  mounted() {
+    console.log(process.env)
   }
 }
 </script>

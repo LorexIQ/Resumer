@@ -1,6 +1,16 @@
+const fs = require('fs');
+// To read Static Files;
+const files = fs.readdirSync('./static/news');
+console.log('test read:', files)
+process.env.NUXT_ENV_STATIC_REFERRAL_DOCS = files.join(';');
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  target: 'static',
+  router: {
+    base: '/resumer/'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -49,7 +59,6 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt'
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     babel: {
