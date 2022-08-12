@@ -1,6 +1,6 @@
 <template>
   <div class="l-layout">
-    <navbar :user-data="userData" :pages-data="navbarPages"/>
+    <navbar :user-data="GET_USER" :pages-data="navbarPages"/>
     <div ref="page" class="l-layout__field">
       <sidebar :pages-data="navbarPages"/>
       <nuxt/>
@@ -15,7 +15,6 @@ export default {
   name: "default",
   data() {
     return {
-      userData: {},
       navbarPages: [
         {
           link: '/',
@@ -42,7 +41,6 @@ export default {
   created() {
     this.SET_NEWS();
     this.SET_USER();
-    this.userData = this.GET_USER;
   },
   computed: {
     ...mapGetters([
@@ -64,7 +62,7 @@ export default {
   gap: 40px;
   &__field {
     padding: 20px 40px 20px 0;
-    width: calc(100% - 430px);
+    width: calc(100% - 410px);
   }
 }
 </style>

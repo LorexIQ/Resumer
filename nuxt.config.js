@@ -2,9 +2,9 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
   target: 'static',
-  // router: {
-  //   base: '/resumer/'
-  // },
+  router: {
+    base: process.env.MODE !== 'dev' ? '/resumer/' : '/'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

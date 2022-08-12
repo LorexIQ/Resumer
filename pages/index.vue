@@ -39,6 +39,7 @@ export default {
   background-color: var(--bg-element);
   border-radius: var(--br-bg);
   padding: 25px;
+  box-shadow: 0 0 15px 0 var(--bs-c-element);
   &__element {
 
   }
