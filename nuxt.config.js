@@ -1,9 +1,3 @@
-const fs = require('fs');
-// To read Static Files;
-const files = fs.readdirSync('./static/news');
-console.log('test read:', files)
-process.env.NUXT_ENV_STATIC_REFERRAL_DOCS = files.join(';');
-
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
