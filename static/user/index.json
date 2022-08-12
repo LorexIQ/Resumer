@@ -1,0 +1,27 @@
+{
+  "name": "Dmitry",
+  "surname": "Murashko",
+  "patronymic": "Sergeevich",
+  "birthday": "29.12.2002",
+  "level": "Junior developer",
+  "workplace": "Noosphere Software LLC",
+  "education": "Studying at BSITU",
+  "links": [
+    {
+      "icon": ["fab", "vk"],
+      "link": "https://vk.com/whedmitryel"
+    },
+    {
+      "icon": ["fab", "telegram"],
+      "link": "https://t.me/LorexIQ"
+    },
+    {
+      "icon": ["fab", "github"],
+      "link": "https://github.com/LorexIQ"
+    },
+    {
+      "icon": ["fas", "envelope"],
+      "link": "mailto: murashko100500@gmail.com"
+    }
+  ]
+}

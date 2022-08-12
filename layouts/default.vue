@@ -9,37 +9,13 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "default",
   data() {
     return {
-      userData: {
-        name: 'Dmitry',
-        surname: 'Murashko',
-        patronymic: 'Sergeevich',
-        birthday: '29.12.2002',
-        level: 'Junior developer',
-        workplace: 'Noosphere Software LLC',
-        education: 'Studying at BSITU',
-        links: [
-          {
-            icon: ['fab', 'vk'],
-            link: 'https://vk.com/whedmitryel'
-          },
-          {
-            icon: ['fab', 'telegram'],
-            link: 'https://t.me/LorexIQ'
-          },
-          {
-            icon: ['fab', 'github'],
-            link: 'https://github.com/LorexIQ'
-          },
-          {
-            icon: ['fas', 'envelope'],
-            link: 'mailto: murashko100500@gmail.com'
-          }
-        ]
-      },
+      userData: {},
       navbarPages: [
         {
           link: '/',
@@ -63,9 +39,21 @@ export default {
       ]
     }
   },
-  mounted() {
+  created() {
+    this.SET_NEWS();
+    this.SET_USER();
+    this.userData = this.GET_USER;
+  },
+  computed: {
+    ...mapGetters([
+      'GET_USER'
+    ])
   },
   methods: {
+    ...mapActions([
+      'SET_NEWS',
+      'SET_USER'
+    ])
   }
 }
 </script>

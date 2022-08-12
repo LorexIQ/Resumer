@@ -46,3 +46,16 @@ body {
   overflow: hidden;
   transition: .3s;
 }
+
+.page {
+  &-enter-active, &-leave-active {
+    transition: .3s;
+  }
+  &-enter, &-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  &-leave, &-enter-to {
+
+  }
+}

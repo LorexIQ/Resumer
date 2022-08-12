@@ -2,13 +2,13 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
   target: 'static',
-  router: {
-    base: '/resumer/'
-  },
+  // router: {
+  //   base: '/resumer/'
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'lorexiq.github.io',
+    title: 'Resumer',
     htmlAttrs: {
       lang: 'en'
     },
