@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "dnuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "deploy": "dotenv -e .env.deploy -- npm run generate && push-dir --dir=dist --branch=gh-pages --cleanup",
+    "push": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
+    "dotenv-cli": "^6.0.0",
     "push-dir": "^0.4.1"
   }
 }
