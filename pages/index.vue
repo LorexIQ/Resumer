@@ -159,6 +159,7 @@ export default {
         white-space: pre-wrap;
         line-height: 26px;
         padding-right: 25px;
+        color: var(--c-stnd-text);
       }
       &__content {
         flex-basis: 40%;
