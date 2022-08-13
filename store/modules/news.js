@@ -11,7 +11,7 @@ export default {
   },
   actions: {
     SET_NEWS: (context) => {
-      context.commit('SAVE_NEWS', require('@/static/news'));
+      context.commit('SAVE_NEWS', require('@/static/news').sort((a, b) => a.timestamp > b.timestamp ? -1 : a.timestamp < b.timestamp ? 1 : 0));
     }
   },
   mutations: {

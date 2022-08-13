@@ -15,12 +15,17 @@
   --c-title-name: #c7c6d5; // color title name
   --c-title-level: #85858e; // color title level
   --c-contact-button: #c7c6d5; // color contact color
+  --bg-s-el: #2c2c41; // background color sub element element
+  --c-blur-text: #cecece; // color blurred text
+  --c-el-time: #85858e; // color element time
+  --lbg-s-el-pos: 0;
 
   --photo-size-max: 200px;
   --photo-size: 60px;
   --br-bg: 35px;
   --br-md: 25px;
   --br-sm: 15px;
+  --br-mc: 10px;
 }
 
 .light-mode {
@@ -37,6 +42,10 @@
   --c-title-name: #373737; // color title name
   --c-title-level: #85858e; // color title level
   --c-contact-button: #969ba0; // color contact color
+  --bg-s-el: #f0f0f0; // background color sub element element
+  --c-blur-text: #555; // color blurred text
+  --c-el-time: #c7c6d5; // color element time
+  --lbg-s-el-pos: 67%; // linear background color element
 }
 
 body {

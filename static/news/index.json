@@ -1,12 +1,7 @@
 [
   {
-    "title": "TestNews1",
-    "content": "testtesttest1\n test1",
-    "timestamp": 1659963279
-  },
-  {
-    "title": "TestNews2",
-    "content": "testtesttest1\n test1",
-    "timestamp": 1659965279
+    "title": "Resumer Development Start",
+    "content": "Resumer online platform, the planned purpose is to keep a developer's \"diary\" about achievements, development and informing interested people.",
+    "timestamp": 1659963279000
   }
 ]

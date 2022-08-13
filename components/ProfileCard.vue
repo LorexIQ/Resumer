@@ -125,6 +125,8 @@ export default {
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      min-width: 300px;
+      max-width: 300px;
       padding: 10px 20px;
       transition: .3s;
       &__photo {

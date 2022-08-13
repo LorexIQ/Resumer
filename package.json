@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "dnuxt",
+    "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "deploy": "dotenv -e .env.deploy -- npm run generate && push-dir --dir=dist --branch=gh-pages --cleanup",
+    "deploy": "dotenv -e .env.deploy -- npm run generate && npm run push",
     "push": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {

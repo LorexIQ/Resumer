@@ -16,13 +16,13 @@ export default {
   font-size: 35px;
   padding: 25px 0;
   user-select: none;
-    svg {
-      color: var(--light-purple);
-    }
-    span {
-      color: var(--c-text-logo);
-      font-weight: 700;
-      transition: .3s;
-    }
+  svg {
+    color: var(--light-purple);
+  }
+  span {
+    color: var(--c-text-logo);
+    font-weight: 700;
+    transition: .3s;
+  }
 }
 </style>
