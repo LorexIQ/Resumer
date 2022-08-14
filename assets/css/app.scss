@@ -18,7 +18,11 @@
   --bg-s-el: #2c2c41; // background color sub element element
   --c-blur-text: #cecece; // color blurred text
   --c-el-time: #85858e; // color element time
-  --lbg-s-el-pos: 0;
+  --lbg-s-el-pos: 0; // linear sub element position
+  --c-lvl-way: #444262; // color level way
+  --c-lvl-way-act: #6b46c8; // color level way active
+  --c-stacks-div: #444262; // color stacks division
+  --bs-frm: #212130; // box shadow frameworks
 
   --photo-size-max: 200px;
   --photo-size: 60px;
@@ -46,6 +50,10 @@
   --c-blur-text: #555; // color blurred text
   --c-el-time: #c7c6d5; // color element time
   --lbg-s-el-pos: 67%; // linear background color element
+  --c-lvl-way: #d3d3e8; // color level way
+  --c-lvl-way-act: #7a4de8; // color level way active
+  --c-stacks-div: #d3d3e8; // color stacks division
+  --bs-frm: #e4e4f1; // box shadow frameworks
 }
 
 body {
@@ -54,6 +62,59 @@ body {
   font-family: Roboto, sans-serif;
   overflow: hidden;
   transition: .3s;
+}
+
+.height-70px-20px {
+  &-1 {
+    max-height: 90px;
+  }
+  &-2 {
+    max-height: 160px;
+  }
+  &-3 {
+    max-height: 230px;
+  }
+  &-4 {
+    max-height: 300px;
+  }
+  &-5 {
+    max-height: 370px;
+  }
+  &-6 {
+    max-height: 440px;
+  }
+  &-7 {
+    max-height: 510px;
+  }
+  &-8 {
+    max-height: 580px;
+  }
+  &-9 {
+    max-height: 650px;
+  }
+  &-10 {
+    max-height: 720px;
+  }
+}
+
+.scroll-field {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-page) var(--c-border);
+  transition: 3s;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--c-border);
+    border-radius: 4px;
+    transition: 3s;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--bg-page);
+    border-radius: 4px;
+    transition: 3s;
+  }
 }
 
 .page {

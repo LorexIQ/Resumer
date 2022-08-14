@@ -23,5 +23,132 @@
       "icon": ["fas", "envelope"],
       "link": "mailto: murashko100500@gmail.com"
     }
+  ],
+  "stacks": [
+    {
+      "name": "JavaScript",
+      "lang": "js",
+      "level": 4,
+      "frameworks": [
+        {
+          "name": "Nuxt JS",
+          "lang": "nuxtjs",
+          "level": 5
+        },
+        {
+          "name": "Vue JS 2",
+          "lang": "vuejs",
+          "level": 4
+        },
+        {
+          "name": "Vue JS 3",
+          "lang": "vuejs",
+          "level": 3
+        },
+        {
+          "name": "Nest JS",
+          "lang": "nestjs",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "name": "Html",
+      "lang": "html",
+      "level": 5,
+      "frameworks": [
+        {
+          "name": "Pug",
+          "lang": "pug",
+          "level": 3
+        }
+      ]
+    },
+    {
+      "name": "CSS",
+      "lang": "css",
+      "level": 5,
+      "frameworks": [
+        {
+          "name": "Sass",
+          "lang": "sass",
+          "level": 3
+        },
+        {
+          "name": "Bootstrap",
+          "lang": "bootstrap",
+          "level": 2
+        },
+        {
+          "name": "Font Awesome",
+          "lang": "fa",
+          "level": 5
+        }
+      ]
+    },
+    {
+      "name": "Python",
+      "lang": "python",
+      "level": 3,
+      "frameworks": [
+        {
+          "name": "PyGame",
+          "lang": "pygame",
+          "level": 4
+        },
+        {
+          "name": "PyQt5",
+          "lang": "pyqt5",
+          "level": 3
+        }
+      ]
+    },
+    {
+      "name": "PHP",
+      "lang": "php",
+      "level": 2
+    },
+    {
+      "name": "Sql",
+      "lang": "sql",
+      "level": 4,
+      "frameworks": [
+        {
+          "name": "MySql",
+          "lang": "mysql",
+          "level": 3
+        },
+        {
+          "name": "Prisma",
+          "lang": "prisma",
+          "level": 1
+        },
+        {
+          "name": "SQLite",
+          "lang": "sqlite",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "name": "C++",
+      "lang": "c++",
+      "level": 3
+    },
+    {
+      "name": "Java",
+      "lang": "java",
+      "level": 1
+    },
+    {
+      "name": "Docker",
+      "lang": "docker",
+      "level": 1
+    },
+    {
+      "name": "TypeScript",
+      "lang": "ts",
+      "level": 2
+    }
   ]
 }

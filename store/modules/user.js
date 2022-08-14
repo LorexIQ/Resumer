@@ -1,12 +1,17 @@
 export default {
   state() {
     return {
-      userData: {}
+      userData: {
+        stacks: []
+      }
     }
   },
   getters: {
     GET_USER: state => {
       return state.userData;
+    },
+    GET_STACKS: state => {
+      return state.userData.stacks;
     }
   },
   actions: {
@@ -16,6 +21,11 @@ export default {
   },
   mutations: {
     SAVE_USER: (state, payload) => {
+      const comparator = (a, b) => {
+        return a.level > b.level ? -1 : a.level < b.level ? 1 : 0;
+      }
+      payload.stacks.sort(comparator);
+      payload.stacks.forEach(res => res.frameworks && res.frameworks.sort(comparator));
       state.userData = payload;
     }
   },

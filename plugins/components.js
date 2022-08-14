@@ -4,9 +4,11 @@ import ProfileCard from "~/components/ProfileCard";
 import Pages from "~/components/Pages";
 import Sidebar from "~/components/Sidebar";
 import Navbar from "~/components/Navbar";
+import LevelViewer from "~/components/LevelViewer";
 
 Vue.component('logo', Logo);
 Vue.component('profile-card', ProfileCard);
 Vue.component('pages', Pages);
 Vue.component('sidebar', Sidebar);
 Vue.component('navbar', Navbar);
+Vue.component('level-viewer', LevelViewer);
