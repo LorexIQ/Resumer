@@ -59,6 +59,9 @@ export default {
 <style lang="scss" scoped>
 .l-layout {
   display: flex;
+  max-width: 1920px;
+  min-width: 1100px;
+  margin: 0 auto;
   gap: 40px;
   &__field {
     padding: 20px 40px 20px 0;

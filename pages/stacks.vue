@@ -79,8 +79,33 @@
         </div>
       </div>
     </div>
-    <div class="l-stacks__statistic">
-      DEVELOPING
+    <div
+      :class="{'l-stacks__statistic--open': statisticOpened}"
+      class="l-stacks__statistic"
+    >
+      <div
+        @click="statisticOpened = !statisticOpened"
+        class="l-stacks__statistic__opener"
+      >
+        <span>Statistic</span>
+      </div>
+      <div class="l-stacks__statistic__content">
+        <span>Statistic</span>
+        <div class="scroll-field">
+          <div class="l-stacks__statistic__content__box">
+            <div
+              v-for="(state, index) of GET_STATISTICS"
+              :key="`statistic-${index}`"
+              class="l-stacks__statistic__content__box__element"
+            >
+              <level-viewer
+                :title="state.name"
+                :level="state.level"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -99,12 +124,14 @@ export default {
     return {
       scrollState: null,
       scrollStartPosition: [],
-      expandedGroups: []
+      expandedGroups: [],
+      statisticOpened: false
     }
   },
   computed: {
     ...mapGetters([
-      'GET_STACKS'
+      'GET_STACKS',
+      'GET_STATISTICS'
     ])
   },
   methods: {
@@ -134,14 +161,6 @@ export default {
   height: calc(100vh - 140px);
   display: flex;
   gap: 20px;
-  @media (max-width: 1600px) {
-    gap: 0;
-    &__statistic {
-      position: absolute;
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
   & > div {
     height: 100%;
     border-radius: var(--br-bg);
@@ -323,7 +342,100 @@ export default {
     }
   }
   &__statistic {
+    position: relative;
     flex-basis: 35%;
+    &__opener {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 0;
+      width: 30px;
+      height: 100px;
+      border-radius: var(--br-sm) 0 0 var(--br-sm);
+      background-color: var(--bg-element);
+      visibility: hidden;
+      opacity: 0;
+      transition: .3s;
+      cursor: pointer;
+      & > span {
+        font-weight: 500;
+        font-size: 14px;
+        writing-mode: vertical-lr;
+        user-select: none;
+      }
+      &:hover {
+        padding-right: 5px;
+        width: 35px;
+        left: -35px;
+      }
+    }
+    &__content {
+      & > span {
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--c-stnd-text);
+        padding-left: 20px;
+        user-select: none;
+      }
+      &__box {
+        display: flex;
+        flex-wrap: wrap;
+        min-width: 250px;
+        justify-content: center;
+        gap: 5px 20px;
+        &__element {
+          height: 70px;
+          min-width: 230px;
+          max-width: 300px;
+          width: 100%;
+        }
+      }
+    }
+  }
+  @media (max-width: 1600px) {
+    gap: 0;
+    &__statistic {
+      animation-name: statistic-in;
+      animation-iteration-count: 1;
+      animation-duration: .6s;
+      position: fixed;
+      right: 40px;
+      width: 350px;
+      min-width: 350px;
+      height: calc(100vh - 140px) !important;
+      transform: translateX(calc(100% + 40px));
+      &__opener {
+        left: -30px;
+        visibility: visible;
+        opacity: 1;
+      }
+      &--open {
+        .l-stacks {
+          &__statistic {
+            &__opener {
+              border: 2px solid var(--c-border);
+              border-right: 0;
+              padding-right: 5px;
+              transition: .3s;
+              &:hover {
+                padding-right: 0;
+                width: 25px;
+                left: -25px;
+              }
+            }
+          }
+        }
+        transform: translateX(0);
+      }
+    }
+  }
+  @media (max-width: 1099px) {
+    &__statistic {
+      &__opener {
+        visibility: hidden;
+      }
+    }
   }
 }
 .scroll-field {
@@ -342,6 +454,17 @@ export default {
   }
   &-leave-to, &-enter {
     max-height: 0;
+  }
+}
+@keyframes statistic-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>

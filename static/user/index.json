@@ -149,6 +149,62 @@
       "name": "TypeScript",
       "lang": "ts",
       "level": 2
+    },
+    {
+      "name": "Web API",
+      "lang": "webapi",
+      "level": 3,
+      "frameworks": [
+        {
+          "name": "Telegram API",
+          "lang": "tg",
+          "level": 2
+        },
+        {
+          "name": "VK API",
+          "lang": "vk",
+          "level": 1
+        },
+        {
+          "name": "Discord API",
+          "lang": "ds",
+          "level": 2
+        }
+      ]
+    }
+  ],
+  "statistic": [
+    {
+      "name": "Designer",
+      "level": 1
+    },
+    {
+      "name": "Algorithmist",
+      "level": 5
+    },
+    {
+      "name": "Layout designer",
+      "level": 4
+    },
+    {
+      "name": "Adaptive layout designer",
+      "level": 3
+    },
+    {
+      "name": "Work speed",
+      "level": 4
+    },
+    {
+      "name": "Free time",
+      "level": 2
+    },
+    {
+      "name": "Training",
+      "level": 5
+    },
+    {
+      "name": "Sociality",
+      "level": 4
     }
   ]
 }
