@@ -8,7 +8,7 @@ export default {
     }
   },
   getters: {
-    GET_USER: state => {
+    GET_USER: (state) => {
       return state.userData;
     },
     GET_STACKS: state => {

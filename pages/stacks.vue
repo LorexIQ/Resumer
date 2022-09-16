@@ -359,6 +359,7 @@ export default {
       transition: .3s;
       cursor: pointer;
       & > span {
+        color: var(--c-stnd-text);
         font-weight: 500;
         font-size: 14px;
         writing-mode: vertical-lr;
