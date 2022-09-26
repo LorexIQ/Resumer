@@ -14,7 +14,7 @@
             >
               <div>
                 <div class="l-stacks__list__box__element__header__img">
-                  <img :src="`stacks/${stack.lang}.png`" :alt="stack.lang" draggable="false">
+                  <img :src="`/stacks/${stack.lang}.png`" :alt="stack.lang" draggable="false">
                 </div>
                 <span>{{stack.name}}</span>
               </div>
@@ -33,7 +33,7 @@
                     :key="`stacks-element-${index}-header-frameworks-${jIndex}`"
                     class="l-stacks__list__box__element__header__frameworks__img"
                   >
-                    <img :src="`stacks/${framework.lang}.png`" :alt="framework.lang" draggable="false">
+                    <img :src="`/stacks/${framework.lang}.png`" :alt="framework.lang" draggable="false">
                   </div>
                 </div>
                 <div
@@ -63,7 +63,7 @@
                 >
                   <div>
                     <div class="l-stacks__list__box__element__frameworks__element__img">
-                      <img :src="`stacks/${framework.lang}.png`" :alt="framework.lang" draggable="false">
+                      <img :src="`/stacks/${framework.lang}.png`" :alt="framework.lang" draggable="false">
                     </div>
                     <span>{{framework.name}}</span>
                   </div>
