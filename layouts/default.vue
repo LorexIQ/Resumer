@@ -40,6 +40,7 @@ export default {
   },
   created() {
     this.SET_NEWS();
+    this.SET_PROJECTS();
     this.SET_USER();
   },
   computed: {
@@ -50,7 +51,8 @@ export default {
   methods: {
     ...mapActions([
       'SET_NEWS',
-      'SET_USER'
+      'SET_USER',
+      'SET_PROJECTS'
     ])
   }
 }

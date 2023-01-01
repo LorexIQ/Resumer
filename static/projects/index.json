@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Test Project",
+    "description": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem",
+    "version": 0.1,
+    "authors": "Мурашко Д.С.",
+    "imgCarousel": {
+      "default": 2,
+      "folder": "test",
+      "count": 6
+    },
+    "link": "https://translate.yandex.ru/",
+    "timestamp": 1664435788000
+  },
+  {
+    "name": "Test Project",
+    "description": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem",
+    "version": 0.1,
+    "authors": "Мурашко Д.С.",
+    "imgCarousel": {
+      "default": 2,
+      "folder": "test",
+      "count": 6
+    },
+    "link": "https://translate.yandex.ru/",
+    "timestamp": 1664435788000
+  }
+]
