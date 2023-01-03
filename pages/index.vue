@@ -66,7 +66,7 @@ export default {
   &__box {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 5px;
     padding-right: 10px;
     max-height: calc(100vh - 190px);
     border-radius: var(--br-mc);

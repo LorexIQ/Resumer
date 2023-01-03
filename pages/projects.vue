@@ -1,6 +1,6 @@
 <template>
   <div class="l-projects">
-    <div class="l-projects__box">
+    <div class="l-projects__box scroll-field">
       <div
         class="l-projects__box__element"
         :class="{'l-projects__box__element--open': openedProjects.includes(index)}"
@@ -46,19 +46,65 @@
               :images="Array.from({length: element.imgCarousel.count}, (el, index) => `/projects/img/${element.imgCarousel.folder}/${index + 1}.png`)"
             />
             <div class="l-projects__box__element__content__authors">
-              authors
+              Authors:
+              <a
+                class="l-projects__box__element__content__authors__author"
+                v-for="(author, index_a) in element.authors"
+                :key="index_a"
+                :href="author.link"
+                target="_blank"
+              >
+                <div class="l-projects__box__element__content__authors__author__img">
+                  <img :src="author.img" alt="">
+                </div>
+                <div class="l-projects__box__element__content__authors__author__name">
+                  {{ author.name }}
+                </div>
+              </a>
             </div>
-            <div class="l-projects__box__element__content__link">
-              link
+            <div class="l-projects__box__element__content__status">
+              Status:
+              <template v-if="element.status === 'dev'">
+                <lfa icon="code"/>
+                <span>In Development</span>
+              </template>
+              <template v-else-if="element.status === 'end'">
+                <lfa icon="check"/>
+                <span>Finished</span>
+              </template>
+              <template v-else-if="element.status === 'throw'">
+                <lfa icon="box-archive"/>
+                <span>Abandoned</span>
+              </template>
+              <template v-else>
+                <lfa icon="times"/>
+                <span>Unknown</span>
+              </template>
             </div>
+            <a
+              class="l-projects__box__element__content__link"
+              :href="element.link"
+              target="_blank"
+            >
+              <lfa icon="folder"/>
+              <span>Link Project</span>
+            </a>
             <div class="l-projects__box__element__content__version">
-              version
+              v{{ element.version }}
             </div>
             <div class="l-projects__box__element__content__description">
-              description
+              Description:
+              <div class="l-projects__box__element__content__description__content">{{ element.description }}</div>
             </div>
             <div class="l-projects__box__element__content__date">
-              date
+              {{new Date(element.timestamp).toLocaleDateString('en-US', dateFilter)}}
+              &mdash;
+              <template v-if="element.timestampEnd">
+                {{new Date(element.timestampEnd).toLocaleDateString('en-US', dateFilter)}}
+              </template>
+              <template v-else>
+                N/A
+              </template>
             </div>
           </div>
         </transition-expand>
@@ -73,7 +119,8 @@ export default {
   name: "projects",
   data() {
     return {
-      openedProjects: []
+      openedProjects: [],
+      dateFilter: { day: 'numeric', month: 'short', year: 'numeric' }
     }
   },
   computed: {
@@ -103,7 +150,7 @@ export default {
   &__box {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 5px;
     padding-right: 10px;
     max-height: calc(100vh - 190px);
     border-radius: var(--br-mc);
@@ -173,13 +220,27 @@ export default {
         }
         &__description {
           grid-area: DESC;
+          position: relative;
           align-self: center;
           flex-basis: 40%;
           display: flex;
+          max-height: 80px;
+          overflow: hidden;
           white-space: normal;
           line-height: 18px;
           font-weight: 300;
           color: var(--c-blur-text);
+          &:before {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(44,44,65,0) 0%, rgba(44,44,65,1) 25%, rgba(240,240,240,0) 50%, rgba(240,240,240,1) 75%, rgba(240,240,240,0) 100%) 0 var(--lbg-s-el-pos);
+            background-size: 100% 400%;
+            transition: .3s;
+          }
         }
         &__button {
           grid-area: BTN;
@@ -191,6 +252,11 @@ export default {
           height: 100%;
           cursor: pointer;
           color: var(--c-title-level);
+          &:hover {
+            & svg {
+              color: var(--c-title-name);
+            }
+          }
           &--open {
             & svg {
               transform: scaleY(-1);
@@ -203,10 +269,10 @@ export default {
         grid-template-areas: "HR HR HR"
                              "CAROUSEL CAROUSEL CAROUSEL"
                              "AUTHORS AUTHORS LINK"
-                             ". . VERSION"
+                             "STATUS . VERSION"
                              "DESCRIPTION DESCRIPTION DESCRIPTION"
                              ". . DATE";
-        padding: 0 10px 10px;
+        padding: 0 20px 20px;
         & hr {
           grid-area: HR;
           border-top: 1px solid var(--c-stacks-div);
@@ -215,21 +281,90 @@ export default {
         }
         &__carousel {
           grid-area: CAROUSEL;
+          margin: 10px 0;
         }
         &__authors {
           grid-area: AUTHORS;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          &__author {
+            font-weight: 500;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: max-content;
+            padding: 5px 10px;
+            border-radius: var(--br-sm);
+            background-color: var(--bg-element);
+            user-select: none;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--c-stnd-text);
+            & img {
+              width: 30px;
+              height: 30px;
+              border-radius: var(--br-sm);
+            }
+            &:hover {
+              transform: scale(1.03);
+            }
+          }
+        }
+        &__status {
+          grid-area: STATUS;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 0;
+          & svg {
+            color: var(--light-purple);
+          }
+          & span {
+            font-weight: 500;
+          }
         }
         &__link {
           grid-area: LINK;
+          font-weight: 500;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          border: 2px solid var(--bg-element);
+          border-radius: var(--br-sm);
+          color: var(--c-stnd-text);
+          background-color: var(--bg-element);
+          text-decoration: none;
+          user-select: none;
+          cursor: pointer;
+          &:hover {
+            color: var(--c-sd-text);
+            background-color: var(--bg-sd-page-el);
+          }
         }
         &__version {
           grid-area: VERSION;
+          font-size: 14px;
+          font-weight: 500;
+          text-align: center;
+          color: var(--c-title-level);
         }
         &__description {
           grid-area: DESCRIPTION;
+          margin-top: 8px;
+          &__content {
+            padding-top: 8px;
+            white-space: pre-wrap;
+          }
         }
         &__date {
           grid-area: DATE;
+          justify-self: end;
+          flex-basis: 10%;
+          font-size: 12px;
+          color: var(--c-el-time);
+          white-space: nowrap;
         }
       }
     }

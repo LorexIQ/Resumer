@@ -1,5 +1,6 @@
 <template>
   <div class="l-carousel">
+    <div class="l-carousel__title">Gallery</div>
     <div class="l-carousel__box scroll-field">
       <div class="l-carousel__box__scroller">
         <div
@@ -7,16 +8,22 @@
           v-for="(img, index) in images"
           :key="index"
         >
-          <img :src="img" alt="">
+          <img :src="img" alt="" draggable="false" @click="selectedImg = img">
         </div>
       </div>
     </div>
+    <full-screen-image v-model="selectedImg"/>
   </div>
 </template>
 
 <script>
 export default {
   name: "LCarouselImages",
+  data() {
+    return {
+      selectedImg: ''
+    }
+  },
   props: {
     images: {
       type: Array,
@@ -30,8 +37,8 @@ export default {
 
 <style lang="scss" scoped>
 .l-carousel {
-  height: 300px;
   position: relative;
+  height: 300px;
   padding: 10px;
   border: 3px solid var(--bg-element);
   border-radius: var(--br-sm);
@@ -67,6 +74,13 @@ export default {
     transition: .3s;
     pointer-events: none;
   }
+  &__title {
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+  }
   &__box {
     width: 100%;
     height: 100%;
@@ -84,6 +98,12 @@ export default {
         & img {
           height: 100%;
           border-radius: var(--br-mc);
+          transition: .3s;
+          cursor: zoom-in;
+          user-select: none;
+          &:hover {
+            transform: scale(1.02);
+          }
         }
       }
     }
