@@ -182,7 +182,7 @@ export default {
     }
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
   .l-news {
     max-height: calc(100% - 70px);
     padding: 20px 10px 20px 20px;

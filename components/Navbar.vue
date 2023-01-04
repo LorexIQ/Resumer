@@ -58,12 +58,6 @@ export default {
   &__logo {
     width: 100%;
   }
-  &--closed {
-    top: calc(100% - 70px) !important;
-    & .l-logo {
-      padding: 10px 0;
-    }
-  }
   &__slider {
     display: flex;
     flex-direction: column;
@@ -88,6 +82,16 @@ export default {
       background-color: var(--bg-page);
       border-radius: 4px;
       transition: .3s;
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .l-navbar {
+    &--closed {
+      top: calc(100% - 70px) !important;
+      & .l-logo {
+        padding: 10px 0;
+      }
     }
   }
 }

@@ -79,10 +79,9 @@ export default {
     width: calc(100% - 410px);
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
   .l-layout {
     min-width: 300px;
-    max-width: 500px;
     height: calc(100% - 70px);
     & .l-navbar {
       position: fixed;
