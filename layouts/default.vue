@@ -48,9 +48,6 @@ export default {
     this.SET_NEWS();
     this.SET_PROJECTS();
     this.SET_USER();
-    document.addEventListener('click', () => {
-      window.scrollTo(0,1);
-    })
   },
   computed: {
     ...mapGetters([

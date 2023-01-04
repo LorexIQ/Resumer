@@ -20,7 +20,7 @@
     "timestamp": 1664435788000
   },
   {
-    "name": "Test Project",
+    "name": "Test Project 2",
     "description": "\tisaiodh oihaosihd iohaiosh iohasiohoi hasoidhoi haosh doahodho ahsh ihidhi hsidh ihsidh ihsih ishdi hihsdih shid hsihdidhsi hishdi hishid hishd ihsih ishid hishdi hihihsihihishidhsihdi shidh ishidh ishdi hish s hisdh ihshihsih ihdihs hsihd ihsihd dsadas",
     "version": 0.1,
     "status": "throw",
@@ -32,7 +32,7 @@
       }
     ],
     "imgCarousel": {
-      "default": 3,
+      "default": 7,
       "folder": "test",
       "count": 7
     },

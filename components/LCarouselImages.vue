@@ -8,11 +8,12 @@
           v-for="(img, index) in images"
           :key="index"
         >
-          <img :src="img" alt="" draggable="false" @click="selectedImg = img">
+          <img :src="img" alt="" draggable="false" @click="selectedImg = index">
+          <div class="l-carousel__box__scroller__img__numerate">{{ index + 1 }}</div>
         </div>
       </div>
     </div>
-    <full-screen-image v-model="selectedImg"/>
+    <full-screen-image v-model="selectedImg" :images="images" :name="name"/>
   </div>
 </template>
 
@@ -25,12 +26,14 @@ export default {
     }
   },
   props: {
+    name: {
+      type: String,
+      required: true
+    },
     images: {
       type: Array,
       required: true
     }
-  },
-  mounted() {
   }
 }
 </script>
@@ -94,6 +97,7 @@ export default {
       grid-gap: 10px;
       height: 100%;
       &__img {
+        position: relative;
         height: 254px;
         & img {
           height: 100%;
@@ -104,6 +108,19 @@ export default {
           &:hover {
             transform: scale(1.02);
           }
+        }
+        &__numerate {
+          position: absolute;
+          bottom: 3px;
+          left: 3px;
+          font-weight: 500;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 25px;
+          height: 25px;
+          border-radius: var(--br-mc);
+          background-color: var(--light-dark-purple);
         }
       }
     }

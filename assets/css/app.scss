@@ -3,6 +3,7 @@
   --light-dark-purple: #6b46c8;
 
   --bg-element: #212130; // background element
+  --bg-element-opos-3: #2121304C; // background element opacity
   --bs-c-element: #171622; // box shadow color element
   --bg-page: #171622; // background page
   --c-border: #2e2e42; // color border
@@ -34,6 +35,7 @@
 
 .light-mode {
   --bg-element: #fff; // background element/
+  --bg-element-opos-3: #FFFFFF4C; // background element opacity
   --bs-c-element: #e4e4f1; // box shadow color element
   --bg-page: #f7f6fb; // background page/
   --c-border: #d3d3e8; // color border

@@ -44,6 +44,7 @@
             <carousel
               class="l-projects__box__element__content__carousel"
               :images="Array.from({length: element.imgCarousel.count}, (el, index) => `/projects/img/${element.imgCarousel.folder}/${index + 1}.png`)"
+              :name="element.name"
             />
             <div class="l-projects__box__element__content__authors">
               Authors:
@@ -421,7 +422,8 @@ export default {
           width: 100%;
           margin: 0 10px;
           padding: 0 0 10px;
-          & .l-carousel {
+          &__link {
+            padding: 5px 10px;
           }
         }
       }
