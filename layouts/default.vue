@@ -34,6 +34,12 @@ export default {
           title: 'Stacks',
           name: 'stacks',
           icon: 'cubes'
+        },
+        {
+          link: '/skills',
+          title: 'Skills',
+          name: 'skills',
+          icon: 'chart-simple'
         }
       ]
     }
@@ -42,6 +48,9 @@ export default {
     this.SET_NEWS();
     this.SET_PROJECTS();
     this.SET_USER();
+    document.addEventListener('click', () => {
+      window.scrollTo(0,1);
+    })
   },
   computed: {
     ...mapGetters([
@@ -68,6 +77,32 @@ export default {
   &__field {
     padding: 20px 40px 20px 0;
     width: calc(100% - 410px);
+  }
+}
+@media (max-width: 500px) {
+  .l-layout {
+    min-width: 300px;
+    max-width: 500px;
+    height: calc(100% - 70px);
+    & .l-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      z-index: 5;
+      box-sizing: border-box;
+    }
+    & .l-sidebar {
+      align-items: flex-start;
+      height: 70px;
+    }
+    &__field {
+      padding: 20px;
+      width: 100%;
+      overflow: hidden;
+    }
   }
 }
 </style>

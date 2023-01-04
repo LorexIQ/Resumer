@@ -468,4 +468,13 @@ export default {
     opacity: 1;
   }
 }
+
+@media (max-width: 500px) {
+  .l-stacks {
+    max-height: calc(100% - 70px);
+    &__box {
+      max-height: 100%;
+    }
+  }
+}
 </style>

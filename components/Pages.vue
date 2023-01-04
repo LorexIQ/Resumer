@@ -3,6 +3,7 @@
     <span
       v-for="(page, index) in pagesData"
       :key="index"
+      @click="$evBus.send('pageSelect')"
     >
       <nuxt-link
         class="l-pages__link"

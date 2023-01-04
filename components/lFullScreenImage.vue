@@ -67,7 +67,7 @@ export default {
   align-items: center;
   width: 100%;
   cursor: zoom-out;
-  z-index: 2;
+  z-index: 6;
   &__box {
     display: flex;
     justify-content: center;

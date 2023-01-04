@@ -3,7 +3,9 @@ export default {
   ssr: false,
   target: 'static',
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
+  server: {
+    host: '192.168.31.114'
+  },
   head: {
     title: 'Resumer',
     htmlAttrs: {
@@ -33,7 +35,8 @@ export default {
   plugins: [
     '@/plugins/fontawesome',
     '@/plugins/components',
-    '@/plugins/colorMode'
+    '@/plugins/colorMode',
+    '@/plugins/eventBus'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

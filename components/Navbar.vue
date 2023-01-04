@@ -1,6 +1,11 @@
 <template>
-  <div class="l-navbar">
-    <logo />
+  <div
+    class="l-navbar"
+    :class="{'l-navbar--closed': !opened}"
+  >
+    <div class="l-navbar__logo" @click="opened = !opened">
+      <logo/>
+    </div>
     <div class="l-navbar__slider">
       <profile-card :user-data="userData"/>
       <pages :pages-data="pagesData"/>
@@ -11,6 +16,11 @@
 <script>
 export default {
   name: "Navbar",
+  data() {
+    return {
+      opened: false
+    }
+  },
   props: {
     userData: {
       type: Object,
@@ -24,6 +34,11 @@ export default {
         return [];
       }
     }
+  },
+  mounted() {
+    this.$evBus.listen('pageSelect', () => {
+      this.opened = false
+    })
   }
 }
 </script>
@@ -40,6 +55,15 @@ export default {
   border-radius: var(--br-bg);
   background-color: var(--bg-element);
   transition: .3s;
+  &__logo {
+    width: 100%;
+  }
+  &--closed {
+    top: calc(100% - 70px) !important;
+    & .l-logo {
+      padding: 10px 0;
+    }
+  }
   &__slider {
     display: flex;
     flex-direction: column;

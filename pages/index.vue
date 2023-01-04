@@ -143,7 +143,7 @@ export default {
             transition: .3s;
           }
         }
-        img {
+        & img {
           position: absolute;
           height: 100%;
           width: 100%;
@@ -178,6 +178,35 @@ export default {
         font-size: 12px;
         color: var(--c-el-time);
         white-space: nowrap;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .l-news {
+    max-height: calc(100% - 70px);
+    padding: 20px 10px 20px 20px;
+    border-radius: var(--br-md);
+    &__box {
+      max-height: 100%;
+      &__element {
+        flex-direction: column;
+        padding-right: 0;
+        &__img {
+          min-width: 100%;
+          max-width: 100%;
+          border-radius: var(--br-mc);
+          border-right: 3px solid var(--bg-s-el);
+          &:before {
+            display: none;
+          }
+          & img {
+            position: relative;
+          }
+        }
+        &__title, &__content, &__time {
+          padding: 5px 10px !important;
+        }
       }
     }
   }

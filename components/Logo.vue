@@ -14,8 +14,14 @@ export default {
 <style lang="scss" scoped>
 .l-logo {
   font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
   padding: 25px 0;
   user-select: none;
+  transition: .3s;
   svg {
     color: var(--light-purple);
   }

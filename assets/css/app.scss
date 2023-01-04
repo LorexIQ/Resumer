@@ -63,6 +63,9 @@ body {
   overflow: hidden;
   transition: .3s;
 }
+html, body, #__nuxt, #__layout {
+  height: 100%;
+}
 
 .height-70px-20px {
   &-1 {

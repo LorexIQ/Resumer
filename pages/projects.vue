@@ -370,4 +370,62 @@ export default {
     }
   }
 }
+@media (max-width: 500px) {
+  .l-projects {
+    width: 100%;
+    height: 100%;
+    max-height: calc(100% - 70px);
+    padding: 20px 10px 20px 20px;
+    border-radius: var(--br-md);
+    &__box {
+      width: 100%;
+      max-height: 100%;
+      &__element {
+        width: 100%;
+        &__box {
+          padding-right: 0;
+          grid-template-areas: "IMG IMG" "TITLE BTN" "DESC DESC";
+          grid-template-columns: calc(100% - 40px) 40px;
+          &__img {
+            min-width: 100%;
+            border-radius: var(--br-sm);
+            border: 3px solid var(--bg-s-el);
+            & img {
+              position: relative;
+            }
+            &:before {
+              display: none;
+            }
+          }
+          &__title, &__description {
+            padding: 5px 10px !important;
+          }
+          &__description {
+            &:before {
+              left: 10px;
+              right: 10px;
+              width: auto;
+            }
+          }
+        }
+        &__content {
+          grid-template-areas: "HR"
+                             "CAROUSEL"
+                             "AUTHORS"
+                             "STATUS"
+                             "LINK"
+                             "VERSION"
+                             "DESCRIPTION"
+                             "DATE";
+          grid-auto-columns: calc(100% - 20px);
+          width: 100%;
+          margin: 0 10px;
+          padding: 0 0 10px;
+          & .l-carousel {
+          }
+        }
+      }
+    }
+  }
+}
 </style>
