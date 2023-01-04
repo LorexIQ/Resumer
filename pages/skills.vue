@@ -2,7 +2,7 @@
   <div class="l-skills">
     <div class="l-skills__box scroll-field">
       <div
-        v-for="(state, index) of GET_STATISTICS"
+        v-for="(state, index) of GET_SKILLS"
         :key="`statistic-${index}`"
         class="l-skills__box__element"
       >
@@ -23,7 +23,7 @@ export default {
   name: "skills",
   computed: {
     ...mapGetters([
-      'GET_STATISTICS'
+      'GET_SKILLS'
     ])
   },
 }

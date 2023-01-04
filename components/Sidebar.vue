@@ -55,7 +55,11 @@ export default {
   },
   computed: {
     titlePage() {
-      return this.pagesData.filter(res => res.name === this.$nuxt.$route.name)[0].title;
+      if (this.pagesData.filter(res => res.name === this.$nuxt.$route.name)[0]) {
+        return this.pagesData.filter(res => res.name === this.$nuxt.$route.name)[0].title;
+      } else {
+        return 'Error'
+      }
     }
   },
   watch: {

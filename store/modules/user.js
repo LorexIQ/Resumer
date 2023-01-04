@@ -3,7 +3,7 @@ export default {
     return {
       userData: {
         stacks: [],
-        statistic: []
+        skills: []
       }
     }
   },
@@ -14,8 +14,8 @@ export default {
     GET_STACKS: state => {
       return state.userData.stacks;
     },
-    GET_STATISTICS: state => {
-      return state.userData.statistic;
+    GET_SKILLS: state => {
+      return state.userData.skills;
     }
   },
   actions: {

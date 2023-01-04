@@ -87,6 +87,7 @@ export default {
 }
 @media (max-width: 1000px) {
   .l-navbar {
+    border-radius: var(--br-md);
     &--closed {
       top: calc(100% - 70px) !important;
       & .l-logo {
